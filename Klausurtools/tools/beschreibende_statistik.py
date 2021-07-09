@@ -14,6 +14,8 @@ def kennwerte(stichprobe):
     print("Standardabweichung / empirische Std\t",      "np.std(...)", "\t\t",        np.std(stichprobe, ddof=1))
     print("Spannweite\t\t\t\t",                         "np.max/min(...)", "\t",      np.max(stichprobe) - np.min(stichprobe))
     print("Interquartilabstand\t\t\t",                  "np.quantile(...)", "\t",     np.quantile(stichprobe, 0.75, interpolation="midpoint") - np.quantile(stichprobe, 0.25, interpolation="midpoint"))
+    print("empirische Schiefe\t\t\t",                   "stats.skew(...)", "\t",      stats.skew(stichprobe))
+    print("empirische Wölbung\t\t\t",                   "stats.kurtosis(...)", "\t",  stats.kurtosis(stichprobe))
 
 
 def haeufigkeitsverteilung(stichprobe):
