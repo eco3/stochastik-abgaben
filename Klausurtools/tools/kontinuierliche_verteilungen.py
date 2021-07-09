@@ -33,4 +33,10 @@ def normalverteilung(mu, sigma):
     print(f"stats.norm(mu={mu}, sigma={sigma})", "\t", f"X ~ N({mu}, {sigma})")
     _calculate_properties(X, f"stats.norm(mu={mu}, sigma={sigma})")
 
+    print("68-95-99.7-Regel / 3-sigma-Grenzen")
+    print(f"   68.3%: [mu -   sigma, mu +   sigma] = [{mu - sigma}, {mu + sigma}]")
+    print(f"   95.5%: [mu - 2*sigma, mu + 2*sigma] = [{mu - 2*sigma}, {mu + 2*sigma}]")
+    print(f"   99.7%: [mu - 3*sigma, mu + 3*sigma] = [{mu - 3*sigma}, {mu + 3*sigma}]")
+    print()
+
     return X
