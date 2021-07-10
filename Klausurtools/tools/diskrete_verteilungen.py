@@ -1,4 +1,7 @@
+import types
 from scipy import stats
+
+from . import diskrete_helper_functions
 
 
 def _calculate_properties(distribution, code_string):
@@ -9,8 +12,18 @@ def _calculate_properties(distribution, code_string):
     print()
 
 
+def _set_helper_methods(discrete_distribution):
+    discrete_distribution.genau = types.MethodType(diskrete_helper_functions.genau, discrete_distribution)
+    discrete_distribution.hoechstens = types.MethodType(diskrete_helper_functions.hoechstens, discrete_distribution)
+    discrete_distribution.mindestens = types.MethodType(diskrete_helper_functions.mindestens, discrete_distribution)
+    discrete_distribution.mehr_als = types.MethodType(diskrete_helper_functions.mehr_als, discrete_distribution)
+    discrete_distribution.weniger_als = types.MethodType(diskrete_helper_functions.weniger_als, discrete_distribution)
+
+    return discrete_distribution
+
+
 def bernoulli(p):
-    X = stats.bernoulli(p)
+    X = _set_helper_methods(stats.bernoulli(p))
 
     print(f"stats.bernoulli(p={p})", "\t", f"X ~ Ber({p})")
     _calculate_properties(X, f"stats.bernoulli(p={p})")
@@ -19,7 +32,7 @@ def bernoulli(p):
 
 
 def geometrisch(p):
-    X = stats.geom(p)
+    X = _set_helper_methods(stats.geom(p))
 
     print(f"stats.geom(p={p})", "\t", f"X ~ geom({p})")
     _calculate_properties(X, f"stats.geom(p={p})")
@@ -28,7 +41,7 @@ def geometrisch(p):
 
 
 def binomial(n, p):
-    X = stats.binom(n, p)
+    X = _set_helper_methods(stats.binom(n, p))
 
     print(f"stats.binom(n={n}, p={p})", "\t", f"X ~ Bin({n}, {p})")
     _calculate_properties(X, f"stats.binom(n={n}, p={p})")
@@ -37,7 +50,7 @@ def binomial(n, p):
 
 
 def poisson(l):
-    X = stats.poisson(l)
+    X = _set_helper_methods(stats.poisson(l))
 
     print(f"stats.poisson({l})", "\t", f"X ~ Po({l})")
     _calculate_properties(X, f"stats.poisson({l})")
@@ -46,7 +59,7 @@ def poisson(l):
 
 
 def hypergeometrisch(N, M, n):
-    X = stats.hypergeom(N, M, n)
+    X = _set_helper_methods(stats.hypergeom(N, M, n))
 
     print(f"stats.hypergeom(N={N}, M={M}, n={n})", "\t", f"X ~ H({n}, {M}, {N})")
     _calculate_properties(X, f"stats.hypergeom(N={N}, M={M}, n={n})")
