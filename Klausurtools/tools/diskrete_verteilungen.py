@@ -1,7 +1,7 @@
-import types
 from scipy import stats
 
-from . import diskrete_helper_functions
+from types import MethodType
+from . import diskrete_helper_functions as dhf
 
 
 def _calculate_properties(distribution, code_string):
@@ -13,11 +13,11 @@ def _calculate_properties(distribution, code_string):
 
 
 def _set_helper_methods(discrete_distribution):
-    discrete_distribution.genau = types.MethodType(diskrete_helper_functions.genau, discrete_distribution)
-    discrete_distribution.hoechstens = types.MethodType(diskrete_helper_functions.hoechstens, discrete_distribution)
-    discrete_distribution.mindestens = types.MethodType(diskrete_helper_functions.mindestens, discrete_distribution)
-    discrete_distribution.mehr_als = types.MethodType(diskrete_helper_functions.mehr_als, discrete_distribution)
-    discrete_distribution.weniger_als = types.MethodType(diskrete_helper_functions.weniger_als, discrete_distribution)
+    discrete_distribution.genau = MethodType(dhf.genau, discrete_distribution)
+    discrete_distribution.hoechstens = MethodType(dhf.hoechstens, discrete_distribution)
+    discrete_distribution.mindestens = MethodType(dhf.mindestens, discrete_distribution)
+    discrete_distribution.mehr_als = MethodType(dhf.mehr_als, discrete_distribution)
+    discrete_distribution.weniger_als = MethodType(dhf.weniger_als, discrete_distribution)
 
     return discrete_distribution
 

@@ -1,31 +1,23 @@
-
 def hoechstens(self, wert):
     val = self.cdf(wert)
-
-    print(self.__class__.__name__)
-
     print(f"P(X≤{wert}) =", val, f"  |  .cdf({wert})")
 
 
-def mindestens(ZV, wert):
-    val = 1 - ZV.cdf(wert - 1)
-
+def mindestens(self, wert):
+    val = 1 - self.cdf(wert - 1)
     print(f"P(X≥{wert}) = 1-P(X≤{wert-1}) =", val, f"  |  .cdf({wert-1})")
 
 
-def mehr_als(ZV, wert):
-    val = 1 - ZV.cdf(wert)
-
+def mehr_als(self, wert):
+    val = 1 - self.cdf(wert)
     print(f"P(X>{wert}) = 1-P(X≤{wert}) =", val, f"  |  .cdf({wert})")
 
 
-def weniger_als(ZV, wert):
-    val = ZV.cdf(wert - 1)
-
+def weniger_als(self, wert):
+    val = self.cdf(wert - 1)
     print(f"P(X<{wert}) = P(X≤{wert-1}) =", val, f"  |  .cdf({wert-1})")
 
 
-def genau(ZV, wert):
-    val = ZV.cdf(wert)
-
+def genau(self, wert):
+    val = self.cdf(wert)
     print(f"P(X={wert}) =", val, f"  |  .cdf({wert})")
