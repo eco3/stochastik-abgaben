@@ -12,14 +12,14 @@ def _calculate_properties(distribution, code_string):
     print()
 
 
-def _set_helper_methods(discrete_distribution):
-    discrete_distribution.genau = MethodType(dhf.genau, discrete_distribution)
-    discrete_distribution.hoechstens = MethodType(dhf.hoechstens, discrete_distribution)
-    discrete_distribution.mindestens = MethodType(dhf.mindestens, discrete_distribution)
-    discrete_distribution.mehr_als = MethodType(dhf.mehr_als, discrete_distribution)
-    discrete_distribution.weniger_als = MethodType(dhf.weniger_als, discrete_distribution)
+def _set_helper_methods(discrete_distr):
+    discrete_distr.genau = MethodType(dhf.genau, discrete_distr)
+    discrete_distr.hoechstens = MethodType(dhf.hoechstens, discrete_distr)
+    discrete_distr.mindestens = MethodType(dhf.mindestens, discrete_distr)
+    discrete_distr.mehr_als = MethodType(dhf.mehr_als, discrete_distr)
+    discrete_distr.weniger_als = MethodType(dhf.weniger_als, discrete_distr)
 
-    return discrete_distribution
+    return discrete_distr
 
 
 def bernoulli(p):
