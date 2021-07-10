@@ -2,12 +2,14 @@ from scipy import stats
 import numpy as np
 import matplotlib.pyplot as plt
 
+from .diskrete_verteilungen import _set_helper_methods
+
 
 def diskrete_zufallsvariable(ps, xs=None):
     if xs is None:
         xs = np.arange(1, len(ps) + 1)
 
-    diskrete_zv = stats.rv_discrete(values=(xs, ps))
+    diskrete_zv = _set_helper_methods(stats.rv_discrete(values=(xs, ps)))
 
     print("ps\t\t", ps)
     print("xs\t\t", xs)
@@ -30,6 +32,8 @@ def plot_diskrete_zv(ps, xs=None):
     ax.set_title("Verteilung von X | P(X=x)")
 
     plt.show()
+
+    # TODO: plot verteilungsfunktion
 
     return diskrete_zv, xs_tmp
 
