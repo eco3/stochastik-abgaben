@@ -24,7 +24,7 @@ def weniger_als(self, wert):
 
 def genau(self, wert):
     val = 0
-    print(f"P(X={wert}) =", val, f"  |  wie bei jeder stetigen Zufalssvariable")
+    print(f"P(X={wert}) =", val, f"  |  (wie bei jeder stetigen Zufallsvariable)")
     return val
 
 
