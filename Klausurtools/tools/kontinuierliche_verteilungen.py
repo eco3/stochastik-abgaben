@@ -1,5 +1,8 @@
 from scipy import stats
 
+from types import MethodType
+from . import kontinuierliche_helper_functions as khf
+
 
 def _calculate_properties(distribution, code_string):
     print("-----------------------------")
@@ -9,8 +12,19 @@ def _calculate_properties(distribution, code_string):
     print()
 
 
+def _set_helper_methods(continous_distr):
+    continous_distr.genau = MethodType(khf.genau, continous_distr)
+    continous_distr.hoechstens = MethodType(khf.hoechstens, continous_distr)
+    continous_distr.mindestens = MethodType(khf.mindestens, continous_distr)
+    continous_distr.mehr_als = MethodType(khf.mehr_als, continous_distr)
+    continous_distr.weniger_als = MethodType(khf.weniger_als, continous_distr)
+    continous_distr.zwischen = MethodType(khf.zwischen, continous_distr)
+
+    return continous_distr
+
+
 def gleichverteilung(a, b):
-    X = stats.uniform(a, b - a)
+    X = _set_helper_methods(stats.uniform(a, b - a))
 
     print(f"stats.uniform(a={a}, b-a={b-a})", "\t", f"X ~ U({a}, {b})")
     _calculate_properties(X, f"stats.uniform(a={a}, b-a={b-a})")
@@ -19,7 +33,7 @@ def gleichverteilung(a, b):
 
 
 def exponentialverteilung(l):
-    X = stats.expon(scale=1 / l)
+    X = _set_helper_methods(stats.expon(scale=1 / l))
 
     print(f"stats.expon(scale=1/{l})", "\t", f"X ~ exp({l})")
     _calculate_properties(X, f"stats.expon(scale=1/{l})")
@@ -28,7 +42,7 @@ def exponentialverteilung(l):
 
 
 def normalverteilung(mu, sigma):
-    X = stats.norm(mu, sigma)
+    X = _set_helper_methods(stats.norm(mu, sigma))
 
     print(f"stats.norm(mu={mu}, sigma={sigma})", "\t", f"X ~ N({mu}, {sigma})")
     _calculate_properties(X, f"stats.norm(mu={mu}, sigma={sigma})")
