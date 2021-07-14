@@ -16,6 +16,7 @@ def lineare_regression(a, b):
 
     print("Lineare Regression")
     print(f"f(x) = {reg.slope:.3f} * x + {reg.intercept:.3f}")
+    print(f"Bestimmheitsmaß: R² = {reg.rvalue**2}")
 
 
 def plot_regression(a, b):
