@@ -3,6 +3,8 @@ from scipy import stats
 
 
 def konfidenzintervall_normalverteilung(alpha, sigma=None, data=None, x_mean=None, s=None, n=None):
+    print("Legende (11)\n")
+
     if data:
         _x_mean = np.mean(data)
         _s = np.std(data, ddof=1)
@@ -34,6 +36,8 @@ def konfidenzintervall_normalverteilung(alpha, sigma=None, data=None, x_mean=Non
 
 
 def konfidenzintervall_beliebige_verteilung(alpha, sigma=None, data=None, x_mean=None, s=None, n=None):
+    print("Legende (12)\n")
+
     if data:
         _x_mean = np.mean(data)
         _s = np.std(data, ddof=1)

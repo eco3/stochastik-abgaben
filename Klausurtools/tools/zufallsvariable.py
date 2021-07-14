@@ -6,6 +6,8 @@ from .diskrete_verteilungen import _set_helper_methods
 
 
 def diskrete_zufallsvariable(ps, xs=None):
+    print("Legende (10)\n!!!!Eventuell Variabeln angeben nicht vergessen!!!!\n")
+
     if xs is None:
         xs = np.arange(1, len(ps) + 1)
 

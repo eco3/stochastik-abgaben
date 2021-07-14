@@ -23,6 +23,8 @@ def _set_helper_methods(discrete_distr):
 
 
 def bernoulli(p):
+    print("Legende (13)\n")
+
     X = _set_helper_methods(stats.bernoulli(p))
 
     print(f"stats.bernoulli(p={p})", "\t", f"X ~ Ber({p})")
@@ -32,6 +34,8 @@ def bernoulli(p):
 
 
 def geometrisch(p):
+    print("Legende (14)\n")
+
     X = _set_helper_methods(stats.geom(p))
 
     print(f"stats.geom(p={p})", "\t", f"X ~ geom({p})")
@@ -41,6 +45,8 @@ def geometrisch(p):
 
 
 def binomial(n, p):
+    print("Legende (15)\n")
+
     X = _set_helper_methods(stats.binom(n, p))
 
     print(f"stats.binom(n={n}, p={p})", "\t", f"X ~ Bin({n}, {p})")
@@ -50,6 +56,8 @@ def binomial(n, p):
 
 
 def poisson(l):
+    print("Legende 16()\n")
+
     X = _set_helper_methods(stats.poisson(l))
 
     print(f"stats.poisson({l})", "\t", f"X ~ Po({l})")

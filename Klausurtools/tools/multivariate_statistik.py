@@ -4,6 +4,8 @@ import matplotlib.pyplot as plt
 
 
 def lineare_korrelation(a, b):
+    print("Legende (3)\n")
+
     korrelationskoeffizient = np.corrcoef(a, b)[0][1]
     kovarianz = np.cov(a, b)[0][1]
 
@@ -12,6 +14,8 @@ def lineare_korrelation(a, b):
 
 
 def lineare_regression(a, b):
+    print("Legende (4)\n")
+
     reg = stats.linregress(a, b)
 
     print("Lineare Regression")

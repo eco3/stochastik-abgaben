@@ -3,6 +3,8 @@ from scipy import stats
 
 
 def kennwerte(stichprobe):
+    print("Legende (1)\n")
+
     print("Stichprobe\t", stichprobe)
     print()
 
@@ -19,6 +21,8 @@ def kennwerte(stichprobe):
 
 
 def haeufigkeitsverteilung(stichprobe):
+    print("Legende (2)\n")
+
     print("Stichprobe\t", stichprobe)
     print()
 

@@ -24,6 +24,8 @@ def _set_helper_methods(continous_distr):
 
 
 def gleichverteilung(a, b):
+    print("Legende (18)\n")
+
     X = _set_helper_methods(stats.uniform(a, b - a))
 
     print(f"stats.uniform(a={a}, b-a={b-a})", "\t", f"X ~ U({a}, {b})")
@@ -33,6 +35,8 @@ def gleichverteilung(a, b):
 
 
 def exponentialverteilung(l):
+    print("Legende (19)\n")
+
     X = _set_helper_methods(stats.expon(scale=1 / l))
 
     print(f"stats.expon(scale=1/{l})", "\t", f"X ~ exp({l})")
@@ -42,6 +46,8 @@ def exponentialverteilung(l):
 
 
 def normalverteilung(mu, sigma):
+    print("Legende (20)\n")
+
     X = _set_helper_methods(stats.norm(mu, sigma))
 
     print(f"stats.norm(mu={mu}, sigma={sigma})", "\t", f"X ~ N({mu}, {sigma})")
